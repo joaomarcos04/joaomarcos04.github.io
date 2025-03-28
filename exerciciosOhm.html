@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios - Primeira Lei de Ohm</title>
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-image: url("fundo.avif"); 
+        background-size: cover; 
+        background-position: center; 
+        background-repeat: no-repeat;
+    }
+    </style>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body class="exercicios">
+    <div class="header">
+        <a href="index.html">Lei de Ohm</a>
+    </div>
+    
+    <div class="container">
+        <h2>Exercícios - Primeira Lei de Ohm</h2>
+        
+        <div class="exercicio">
+            <p><strong>1. Cálculo da Tensão (V)</strong></p>
+            <p>Se uma corrente de <strong>2 A</strong> passa por um resistor de <strong>10 Ω</strong>, qual é a tensão?</p>
+            <input type="number" id="resposta1" step="any"> V 
+            <button onclick="verificar(1, 20)">Verificar</button>
+            <p class="resultado" id="resultado1"></p>
+        </div>
+        
+        <div class="exercicio">
+            <p><strong>2. Cálculo da Corrente (I)</strong></p>
+            <p>Qual a corrente que passa em um resistor de <strong>5 Ω</strong> quando submetido a uma tensão de <strong>15 V</strong>?</p>
+            <input type="number" id="resposta2" step="any"> A
+            <button onclick="verificar(2, 3)">Verificar</button>
+            <p class="resultado" id="resultado2"></p>
+        </div>
+        
+        <div class="exercicio">
+            <p><strong>3. Cálculo da Resistência (R)</strong></p>
+            <p>Se uma lâmpada opera com <strong>24 V</strong> e uma corrente de <strong>3 A</strong>, qual é a resistência?</p>
+            <input type="number" id="resposta3" step="any"> Ω
+            <button onclick="verificar(3, 8)">Verificar</button>
+            <p class="resultado" id="resultado3"></p>
+        </div>
+    </div>
+
+    <script>
+        function verificar(exercicio, respostaCorreta) {
+            let respostaUsuario = parseFloat(document.getElementById("resposta" + exercicio).value);
+            let resultado = document.getElementById("resultado" + exercicio);
+            
+            if (respostaUsuario === respostaCorreta) {
+                resultado.innerText = "Correto! ✅";
+                resultado.style.color = "green";
+            } else {
+                resultado.innerText = "Errado! ❌ A resposta correta é " + respostaCorreta;
+                resultado.style.color = "red";
+            }
+        }
+    </script>
+    <br>
+</body>
+<footer>
+    <p>© 2025 Lei de Ohm - Projeto Educacional | Aluno: João Marcos Galindo Secco - RA: R866173 - Ciências da Computação - UNIP Anchieta</p>
+</footer>
+</html>

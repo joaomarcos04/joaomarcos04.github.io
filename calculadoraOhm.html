@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculadora Lei de Ohm </title>
+        <style>
+            body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-image: url("fundo.avif"); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat;
+        }
+        </style>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body class="calculadora">
+        <div class="header">
+            <a href="index.html">Lei de Ohm</a>
+        </div>
+        <div class="container">
+           
+            <h2>Calculadora de Ohm</h2>
+            <p>A <strong>Calculadora de Ohm</strong> é uma ferramenta prática para calcular <strong>tensão (V)</strong>, <strong>corrente (I)</strong> ou <strong>resistência (R)</strong> com base na <strong>Lei de Ohm</strong>. Basta preencher <strong>dois dos três valores</strong> na tabela e clicar no botão <strong>"Calcular"</strong>. O sistema identificará automaticamente o valor que está faltando e exibirá o resultado na tela.</p>
+            <table>
+                <tr>
+                    <th>Tensão (V)</th>
+                    <td><input type="number" id="tensao" placeholder="V" step="any"></td>
+                </tr>
+                <tr>
+                    <th>Corrente (I)</th>
+                    <td><input type="number" id="corrente" placeholder="I" step="any"></td>
+                </tr>
+                <tr>
+                    <th>Resistência (R)</th>
+                    <td><input type="number" id="resistencia" placeholder="R" step="any"></td>
+                </tr>
+            </table>
+            <div class="button-container">
+                <button onclick="calcular()">Calcular</button>
+            </div>
+            <h3 id="resultado"></h3>
+        </div>
+    
+        <script>
+            function calcular() {
+                let V = parseFloat(document.getElementById("tensao").value);
+                let I = parseFloat(document.getElementById("corrente").value);
+                let R = parseFloat(document.getElementById("resistencia").value);
+                let resultado = document.getElementById("resultado");
+    
+                if (isNaN(V)) {
+                    if (!isNaN(I) && !isNaN(R) && R !== 0) {
+                        resultado.innerText = "Tensão (V) = " + (I * R).toFixed(2) + " V";
+                        return;
+                    }
+                }
+                if (isNaN(I)) {
+                    if (!isNaN(V) && !isNaN(R) && R !== 0) {
+                        resultado.innerText = "Corrente (I) = " + (V / R).toFixed(2) + " A";
+                        return;
+                    }
+                }
+                if (isNaN(R)) {
+                    if (!isNaN(V) && !isNaN(I) && I !== 0) {
+                        resultado.innerText = "Resistência (R) = " + (V / I).toFixed(2) + " Ω";
+                        return;
+                    }
+                }
+                resultado.innerText = "Por favor, deixe apenas um campo vazio para calcular.";
+            }
+        </script>
+        <br>
+    </body>
+    <footer>
+        <p>© 2025 Lei de Ohm - Projeto Educacional | Aluno: João Marcos Galindo Secco - RA: R866173 - Ciências da Computação - UNIP Anchieta</p>
+    </footer>
+</html>
